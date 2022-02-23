@@ -56,7 +56,6 @@ public class Interest extends Identity {
 	public String toString() {
 		return getClass().getSimpleName() + "(" +
 				"id = " + getId() + ", " +
-				"name = " + getName() + ", " +
-				"version = " + getVersion() + ")";
+				"name = " + getName() + ")";
 	}
 }
