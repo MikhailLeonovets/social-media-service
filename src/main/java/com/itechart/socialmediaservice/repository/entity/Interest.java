@@ -9,13 +9,10 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,21 +20,13 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "interest")
-public class Interest extends Identity {
+public class Interest extends Identity implements Serializable {
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "version")
 	@Version
 	private Long version;
-
-	@ManyToMany
-	@JoinTable(
-			name = "user_interest",
-			joinColumns = @JoinColumn(name = "interest_id"),
-			inverseJoinColumns = @JoinColumn(name = "user_id")
-	)
-	private Set<User> interests;
 
 	@Override
 	public boolean equals(Object o) {

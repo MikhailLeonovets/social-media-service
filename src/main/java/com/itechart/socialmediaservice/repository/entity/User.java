@@ -14,6 +14,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "user")
-public class User extends Identity {
+public class User extends Identity implements Serializable {
 	@Column(name = "name")
 	private String name;
 
