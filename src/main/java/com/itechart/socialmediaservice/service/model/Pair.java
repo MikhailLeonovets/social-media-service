@@ -7,12 +7,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Set;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
-public class Interest implements Serializable {
-	private String name;
+public class Pair implements Serializable {
+	private User firstUser;
+	private User secondUser;
+	private Set<Interest> interestsIntersection;
 }
