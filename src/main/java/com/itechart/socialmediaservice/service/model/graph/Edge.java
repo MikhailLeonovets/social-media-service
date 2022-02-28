@@ -1,4 +1,4 @@
-package com.itechart.socialmediaservice.service.graph;
+package com.itechart.socialmediaservice.service.model.graph;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -8,7 +8,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -16,10 +15,8 @@ import java.util.Set;
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
-public class Graph implements Serializable {
-	private Set<Vertex> vertices;
+public class Edge implements Serializable {
+	private Vertex to;
+	private int weight;
 
-	public boolean addVertex(Vertex vertex) {
-		return vertices.add(vertex);
-	}
 }
