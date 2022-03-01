@@ -12,9 +12,9 @@ import java.io.Serializable;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
+@NoArgsConstructor
 public class Edge implements Serializable {
 	private Vertex to;
 	private int weight;
