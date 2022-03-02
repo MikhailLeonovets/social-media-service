@@ -21,6 +21,7 @@ public class UserFileServiceImpl implements UserFileService {
 		String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 		switch (extension) {
 			case "json": jsonParser.convertToUsers(file);
+			break;
 		}
 	}
 
