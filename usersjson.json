@@ -1,0 +1,13 @@
+[ {
+  "name" : "Misha",
+  "interests" : [ {
+    "name" : "movies"
+  }, {
+    "name" : "cars"
+  } ]
+}, {
+  "name" : "Lesha",
+  "interests" : [ {
+    "name" : "music"
+  } ]
+} ]
