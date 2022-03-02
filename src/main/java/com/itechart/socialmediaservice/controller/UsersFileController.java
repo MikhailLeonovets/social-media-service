@@ -19,7 +19,8 @@ public class UsersFileController {
 	}
 
 	@PostMapping("/upload")
-	public void createUsersFromFile(@RequestParam("file") MultipartFile file) throws IOException {
+	public void uploadUsersFile(@RequestParam("file") MultipartFile file) throws IOException {
 		userFileService.createUsersFromFile(file);
+
 	}
 }
