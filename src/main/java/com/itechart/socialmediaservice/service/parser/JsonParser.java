@@ -33,6 +33,6 @@ public class JsonParser implements Parser {
 	public Set<User> convertToUsers(MultipartFile file) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
 		return objectMapper.readValue(file.getBytes(),
-				objectMapper.getTypeFactory().constructCollectionType(List.class, User.class));
+				objectMapper.getTypeFactory().constructCollectionType(Set.class, User.class));
 	}
 }

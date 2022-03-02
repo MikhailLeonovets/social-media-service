@@ -5,7 +5,21 @@
   }, {
     "name" : "cars"
   } ]
-}, {
+},{
+  "name" : "Katy",
+  "interests" : [ {
+    "name" : "movies"
+  }, {
+    "name" : "cars"
+  } ]
+},{
+  "name" : "Kirill",
+  "interests" : [ {
+    "name" : "music"
+  }, {
+    "name" : "cars"
+  } ]
+},{
   "name" : "Lesha",
   "interests" : [ {
     "name" : "music"
