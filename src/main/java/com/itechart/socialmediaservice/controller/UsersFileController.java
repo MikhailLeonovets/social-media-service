@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/social-media-service")
+@RequestMapping("/social-media-service/users")
 public class UsersFileController {
 	private final UserFileService userFileService;
 
@@ -18,9 +18,8 @@ public class UsersFileController {
 		this.userFileService = userFileService;
 	}
 
-	@PostMapping("/users/upload")
+	@PostMapping("/upload")
 	public void createUsersFromFile(@RequestParam("file") MultipartFile file) throws IOException {
 		userFileService.createUsersFromFile(file);
 	}
-
 }

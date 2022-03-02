@@ -1,22 +1,17 @@
 package com.itechart.socialmediaservice.service.parser;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itechart.socialmediaservice.service.model.Interest;
 import com.itechart.socialmediaservice.service.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
 @Component
 public class JsonParser implements Parser {
-	@PostConstruct
+	/*@PostConstruct
 	public void init() throws JsonProcessingException {
 		Interest interest1 = new Interest("cars");
 		Interest interest2 = new Interest("movies");
@@ -32,14 +27,12 @@ public class JsonParser implements Parser {
 		ObjectMapper objectMapper = new ObjectMapper();
 
 		System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(users));
-	}
+	}*/
 
 	@Override
-	public List<User> convertToUsers(MultipartFile file) throws IOException {
+	public Set<User> convertToUsers(MultipartFile file) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
-		List<User> users = objectMapper.readValue(file.getBytes(),
+		return objectMapper.readValue(file.getBytes(),
 				objectMapper.getTypeFactory().constructCollectionType(List.class, User.class));
-		System.out.println(users);
-		return users;
 	}
 }

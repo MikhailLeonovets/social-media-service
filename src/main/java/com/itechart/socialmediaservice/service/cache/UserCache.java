@@ -2,25 +2,25 @@ package com.itechart.socialmediaservice.service.cache;
 
 import com.itechart.socialmediaservice.service.model.User;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Component
+@NoArgsConstructor
 public class UserCache {
-	private List<User> users;
+	private Set<User> users;
 	private int version;
 
-	public UserCache() {
-		this.version = 1;
+	@PostConstruct
+	public void init() {
+		users = new HashSet<>();
+		version = 1;
 	}
-
-	public UserCache(List<User> users) {
-		this.users = users;
-		this.version = 1;
-	}
-
 }
