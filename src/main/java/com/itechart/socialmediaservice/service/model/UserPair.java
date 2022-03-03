@@ -14,7 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Pair implements Serializable {
+public class UserPair implements Serializable {
 	private User firstUser;
 	private User secondUser;
 	private Set<Interest> interestsIntersection;

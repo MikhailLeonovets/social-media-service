@@ -1,9 +1,9 @@
 package com.itechart.socialmediaservice.controller;
 
-import com.itechart.socialmediaservice.service.PairCalculatorService;
+import com.itechart.socialmediaservice.service.PairService;
 import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
-import com.itechart.socialmediaservice.service.model.Pair;
+import com.itechart.socialmediaservice.service.model.UserPair;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +13,14 @@ import java.util.Set;
 @RestController
 @RequestMapping("/social-media-service/pairs")
 public class PairController {
-	private final PairCalculatorService pairCalculatorService;
+	private final PairService pairService;
 
-	public PairController(PairCalculatorService pairService) {
-		this.pairCalculatorService = pairService;
+	public PairController(PairService pairService) {
+		this.pairService = pairService;
 	}
 
 	@GetMapping
-	public Set<Pair> getPairs() throws UserNotFoundException, DataInputException { //TODO handle exception
-		return pairCalculatorService.getPairs();
+	public Set<UserPair> getPairs() throws UserNotFoundException, DataInputException { //TODO handle exception
+		return pairService.getPairs();
 	}
 }

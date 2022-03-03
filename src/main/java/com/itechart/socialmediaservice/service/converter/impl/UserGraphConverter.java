@@ -1,6 +1,6 @@
-package com.itechart.socialmediaservice.service.impl;
+package com.itechart.socialmediaservice.service.converter.impl;
 
-import com.itechart.socialmediaservice.service.GraphService;
+import com.itechart.socialmediaservice.service.converter.GraphConverter;
 import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.model.User;
 import com.itechart.socialmediaservice.service.model.graph.Edge;
@@ -12,10 +12,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-public class GraphServiceImpl implements GraphService {
+public class UserGraphConverter implements GraphConverter {
 
 	@Override
-	public Graph convertUsersToGraph(Set<User> users) throws DataInputException {
+	public Graph convertToGraph(Set<User> users) throws DataInputException {
 		if (users == null) {
 			throw new DataInputException();
 		}
@@ -25,6 +25,7 @@ public class GraphServiceImpl implements GraphService {
 			addPossibleEdgesToUserAsVertex(users, vertices, user);
 		}
 		graph.addVertices(vertices);
+		System.out.println(graph);
 		return graph;
 	}
 
