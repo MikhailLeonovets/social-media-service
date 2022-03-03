@@ -7,6 +7,6 @@ import java.util.Set;
 
 public interface GraphAlgorithmService {
 
-	Set<VertexPair> findAllWeightiestEdgeConnectedPairs(Graph graph);
+	Set<VertexPair> findVerticesPairsByWeightiestEdge(Graph graph);
 
 }

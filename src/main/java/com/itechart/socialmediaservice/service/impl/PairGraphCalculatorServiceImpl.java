@@ -33,7 +33,7 @@ public class PairGraphCalculatorServiceImpl implements PairCalculatorService {
 	public Set<UserPair> getPairsOfUsers(Set<User> users) throws DataInputException {
 		Set<UserPair> userPairs = new HashSet<>();
 		Graph usersGraph = graphService.convertToGraph(users);
-		Set<VertexPair> vertexPairs = graphAlgorithmService.findAllWeightiestEdgeConnectedPairs(usersGraph);
+		Set<VertexPair> vertexPairs = graphAlgorithmService.findVerticesPairsByWeightiestEdge(usersGraph);
 		for (VertexPair vertexPair : vertexPairs) {
 			User firstUser = getUserFromVertex(users, vertexPair.getFirstVertex());
 			User secondUser = getUserFromVertex(users, vertexPair.getSecondVertex());

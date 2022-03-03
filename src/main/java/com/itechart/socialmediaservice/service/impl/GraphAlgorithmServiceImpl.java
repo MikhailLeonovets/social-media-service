@@ -15,14 +15,14 @@ import java.util.Set;
 public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
 
 	@Override
-	public Set<VertexPair> findAllWeightiestEdgeConnectedPairs(Graph graph) {
+	public Set<VertexPair> findVerticesPairsByWeightiestEdge(Graph graph) {
 		Set<VertexPair> vertexPairs = new HashSet<>();
 		Set<Vertex> checkedVertices = new HashSet<>();
 		for (Vertex vertex : graph.getVertices()) {
 			if (checkedVertices.contains(vertex)) {
 				continue;
 			}
-			findVertexPair(graph, vertex, checkedVertices, vertexPairs);
+			findVertexPair(vertex, checkedVertices, vertexPairs);
 		}
 		return vertexPairs;
 	}
@@ -33,7 +33,7 @@ public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
 				.get();
 	}
 
-	private void findVertexPair(Graph graph, Vertex vertex, Set<Vertex> checkedVertices, Set<VertexPair> vertexPairs) {
+	private void findVertexPair(Vertex vertex, Set<Vertex> checkedVertices, Set<VertexPair> vertexPairs) {
 		Edge weightiestEdgeCurrentVertex = findWeightiestEdge(vertex);
 		Vertex adjacentVertex = weightiestEdgeCurrentVertex.getTo();
 		if (findWeightiestEdge(adjacentVertex).getTo().equals(vertex)) {
@@ -41,7 +41,7 @@ public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
 			vertexPairs.add(new VertexPair(vertex, adjacentVertex));
 		} else {
 			vertex.getEdges().remove(weightiestEdgeCurrentVertex);
-			findVertexPair(graph, vertex, checkedVertices, vertexPairs);
+			findVertexPair(vertex, checkedVertices, vertexPairs);
 		}
 	}
 }
