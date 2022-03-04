@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<users>
+  <user>
+    <name>Misha</name>
+    <interests>
+      <name>movies</name>
+    </interests>
+    <interests>
+      <name>cars</name>
+    </interests>
+  </user>
+  <user>
+    <name>Katy</name>
+    <interests>
+      <name>movies</name>
+    </interests>
+    <interests>
+      <name>cars</name>
+    </interests>
+  </user>
+  <user>
+    <name>Kirill</name>
+    <interests>
+      <name>music</name>
+    </interests>
+    <interests>
+      <name>cars</name>
+    </interests>
+  </user>
+  <user>
+    <name>Lesha</name>
+    <interests>
+      <name>music</name>
+    </interests>
+  </user>
+</users>
