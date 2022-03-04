@@ -21,7 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-public class XmlParser implements Parser {
+public class XmlUserParser implements Parser {
 	private static final String TAG_USER_OBJECT = "user";
 	private static final String TAG_USER_NAME = "name";
 	private static final String TAG_INTERESTS = "interests";

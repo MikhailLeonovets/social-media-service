@@ -5,8 +5,8 @@ import com.itechart.socialmediaservice.service.cache.UserCache;
 import com.itechart.socialmediaservice.service.exception.FileUploadException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
 import com.itechart.socialmediaservice.service.model.User;
-import com.itechart.socialmediaservice.service.parser.JsonParser;
-import com.itechart.socialmediaservice.service.parser.XmlParser;
+import com.itechart.socialmediaservice.service.parser.JsonUserParser;
+import com.itechart.socialmediaservice.service.parser.XmlUserParser;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,11 +16,11 @@ import java.util.Set;
 
 @Service
 public class UserFileServiceImpl implements UserFileService {
-	private final JsonParser jsonParser;
-	private final XmlParser xmlParser;
+	private final JsonUserParser jsonParser;
+	private final XmlUserParser xmlParser;
 	private final UserCache userCache;
 
-	public UserFileServiceImpl(JsonParser jsonParser, XmlParser xmlParser, UserCache userCache) {
+	public UserFileServiceImpl(JsonUserParser jsonParser, XmlUserParser xmlParser, UserCache userCache) {
 		this.jsonParser = jsonParser;
 		this.xmlParser = xmlParser;
 		this.userCache = userCache;
