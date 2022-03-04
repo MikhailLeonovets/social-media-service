@@ -17,13 +17,12 @@ import java.util.Set;
 public class CsvUserParser implements UserParser {
 	@Override
 	public Set<User> convertToUsers(MultipartFile file) throws IOException {
-		Set<User> users = new HashSet<>();
 		Reader reader = new InputStreamReader(file.getInputStream());
-		CsvToBean csvToBean = new CsvToBeanBuilder(reader)
-				.withType(User.class)
-				.withSkipLines(1)
+		CsvToBeanBuilder<User> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
+		csvToBeanBuilder.withType(User.class);
+		csvToBeanBuilder.withSkipLines(1);
+		CsvToBean<User> csvToBean = csvToBeanBuilder
 				.build();
-		users.addAll(csvToBean.parse());
-		return users;
+		return new HashSet<>(csvToBean.parse());
 	}
 }
