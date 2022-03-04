@@ -5,6 +5,7 @@ import com.itechart.socialmediaservice.service.cache.UserCache;
 import com.itechart.socialmediaservice.service.exception.FileUploadException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
 import com.itechart.socialmediaservice.service.model.User;
+import com.itechart.socialmediaservice.service.parser.CsvUserParser;
 import com.itechart.socialmediaservice.service.parser.JsonUserParser;
 import com.itechart.socialmediaservice.service.parser.XmlUserParser;
 import org.apache.commons.io.FilenameUtils;
@@ -18,11 +19,14 @@ import java.util.Set;
 public class UserFileServiceImpl implements UserFileService {
 	private final JsonUserParser jsonParser;
 	private final XmlUserParser xmlParser;
+	private final CsvUserParser csvUserParser;
 	private final UserCache userCache;
 
-	public UserFileServiceImpl(JsonUserParser jsonParser, XmlUserParser xmlParser, UserCache userCache) {
+	public UserFileServiceImpl(JsonUserParser jsonParser, XmlUserParser xmlParser,
+	                           CsvUserParser csvUserParser, UserCache userCache) {
 		this.jsonParser = jsonParser;
 		this.xmlParser = xmlParser;
+		this.csvUserParser = csvUserParser;
 		this.userCache = userCache;
 	}
 
@@ -40,13 +44,16 @@ public class UserFileServiceImpl implements UserFileService {
 			case "xml":
 				users = xmlParser.convertToUsers(file);
 				break;
+			case "csv":
+				users = csvUserParser.convertToUsers(file);
+				break;
 			default:
 				throw new FileUploadException();
 		}
 		if (users.isEmpty()) {
 			throw new UserNotFoundException();
 		}
+		System.out.println(users);
 		userCache.setUsers(users);
 	}
-
 }

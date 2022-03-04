@@ -1,5 +1,8 @@
 package com.itechart.socialmediaservice.service.model;
 
+import com.itechart.socialmediaservice.service.parser.converter.TextToInterestConverter;
+import com.opencsv.bean.CsvBindAndSplitByPosition;
+import com.opencsv.bean.CsvBindByPosition;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,7 +26,10 @@ import java.util.Set;
 @XmlRootElement(name = "user")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class User implements Serializable {
+	@CsvBindByPosition(position = 0)
 	private String name;
 	@XmlElement(name = "interests")
+	@CsvBindAndSplitByPosition(position = 1, splitOn = "\\|", elementType = Interest.class, converter =
+			TextToInterestConverter.class)
 	private Set<Interest> interests;
 }
