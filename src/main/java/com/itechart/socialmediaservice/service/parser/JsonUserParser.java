@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.Set;
 
 @Component
-public class JsonUserParser implements Parser {
+public class JsonUserParser implements UserParser {
 	@Override
 	public Set<User> convertToUsers(MultipartFile file) throws IOException {
 		ObjectMapper objectMapper = new ObjectMapper();
