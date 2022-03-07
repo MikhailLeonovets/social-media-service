@@ -39,7 +39,7 @@ public class Vertex implements Serializable {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Vertex vertex = (Vertex) o;
-		return Objects.equals(label, vertex.label) && Objects.equals(edges, vertex.edges);
+		return Objects.equals(label, vertex.label);
 	}
 
 	@Override
