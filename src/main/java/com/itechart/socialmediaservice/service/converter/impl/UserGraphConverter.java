@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Service
 public class UserGraphConverter implements GraphConverter {
-
 	@Override
 	public Graph convertToGraph(Set<User> users) throws DataInputException {
 		if (users == null) {

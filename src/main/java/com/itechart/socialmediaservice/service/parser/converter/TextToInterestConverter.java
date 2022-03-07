@@ -6,7 +6,6 @@ import com.opencsv.exceptions.CsvConstraintViolationException;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 
 public class TextToInterestConverter extends AbstractCsvConverter {
-
 	@Override
 	public Object convertToRead(String s) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
 		return new Interest(s);

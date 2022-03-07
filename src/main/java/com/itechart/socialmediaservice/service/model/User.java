@@ -29,7 +29,7 @@ public class User implements Serializable {
 	@CsvBindByPosition(position = 0)
 	private String name;
 	@XmlElement(name = "interests")
-	@CsvBindAndSplitByPosition(position = 1, splitOn = "\\|", elementType = Interest.class, converter =
-			TextToInterestConverter.class)
+	@CsvBindAndSplitByPosition(position = 1, splitOn = "\\|", elementType = Interest.class,
+			converter =	TextToInterestConverter.class)
 	private Set<Interest> interests;
 }
