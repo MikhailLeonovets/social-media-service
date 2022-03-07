@@ -1,6 +1,5 @@
 package com.itechart.socialmediaservice.service.model.graph;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,12 +10,16 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString(exclude = "to")
 @NoArgsConstructor
 public class Edge implements Serializable {
 	private Vertex to;
 	private int weight;
+
+	public Edge(Vertex to, int weight) {
+		this.to = to;
+		this.weight = weight;
+	}
 
 	@Override
 	public boolean equals(Object o) {
