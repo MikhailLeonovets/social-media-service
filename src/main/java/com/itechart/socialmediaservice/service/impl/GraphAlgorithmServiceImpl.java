@@ -13,7 +13,6 @@ import java.util.Set;
 
 @Service
 public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
-
 	@Override
 	public Set<VertexPair> findVerticesPairsByWeightiestEdge(Graph graph) {
 		Set<VertexPair> vertexPairs = new HashSet<>();

@@ -25,7 +25,6 @@ public class UserGraphConverter implements GraphConverter {
 			addPossibleEdgesToUserAsVertex(users, vertices, user);
 		}
 		graph.addVertices(vertices);
-		System.out.println(graph);
 		return graph;
 	}
 
