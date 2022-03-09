@@ -31,6 +31,9 @@ public class PairGraphCalculatorServiceImpl implements PairCalculatorService {
 	 */
 	@Override
 	public Set<UserPair> getPairsOfUsers(Set<User> users) throws DataInputException {
+		if (users == null || users.isEmpty()) {
+			throw new DataInputException();
+		}
 		Set<UserPair> userPairs = new HashSet<>();
 		Graph usersGraph = graphService.convertToGraph(users);
 		Set<VertexPair> vertexPairs = graphAlgorithmService.findVerticesPairsByWeightiestEdge(usersGraph);
