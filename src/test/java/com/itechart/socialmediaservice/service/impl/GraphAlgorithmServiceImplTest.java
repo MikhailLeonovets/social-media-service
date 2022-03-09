@@ -29,15 +29,15 @@ class GraphAlgorithmServiceImplTest {
 	void testFindVerticesPairsByWeightiestEdge() {
 		// Given
 		Set<Vertex> vertices = getVerticesSet();
-		Graph graph = new Graph(vertices);
-		System.out.println(vertices);
+		Graph graph = new Graph();
+		graph.addVertices(vertices);
 		Set<VertexPair> expectedVertexPair = Set.of(new VertexPair(
 				vertices.stream()
-						.filter(vertex -> vertex.getLabel().equals(vertexLabel1))
+						.filter(vertex -> vertex.getLabel().equals(vertexLabel2))
 						.findFirst()
 						.get(),
 				vertices.stream()
-						.filter(vertex -> vertex.getLabel().equals(vertexLabel3))
+						.filter(vertex -> vertex.getLabel().equals(vertexLabel1))
 						.findFirst()
 						.get()
 		));
@@ -57,7 +57,7 @@ class GraphAlgorithmServiceImplTest {
 		Vertex vertex2 = new Vertex(vertexLabel2);
 		Vertex vertex3 = new Vertex(vertexLabel3);
 		Edge edge1_2 = new Edge(vertex2, edgeWeight2);
-		Edge edge1_3 = new Edge(vertex3, edgeWeight2);
+		Edge edge1_3 = new Edge(vertex3, edgeWeight1);
 		Edge edge2_1 = new Edge(vertex1, edgeWeight2);
 		Edge edge2_3 = new Edge(vertex3, edgeWeight1);
 		Edge edge3_1 = new Edge(vertex1, edgeWeight1);

@@ -6,6 +6,13 @@
     "name" : "cars"
   } ]
 },{
+  "name" : "Dima",
+  "interests" : [ {
+    "name" : "movies"
+  }, {
+    "name" : "cars"
+  } ]
+},{
   "name" : "Katy",
   "interests" : [ {
     "name" : "movies"
