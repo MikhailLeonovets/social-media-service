@@ -1,5 +1,6 @@
 package com.itechart.socialmediaservice.service.impl;
 
+import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.model.graph.Edge;
 import com.itechart.socialmediaservice.service.model.graph.Graph;
 import com.itechart.socialmediaservice.service.model.graph.Vertex;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 class GraphAlgorithmServiceImplTest {
 	private static final String vertexLabel1 = "Asdf";
@@ -26,7 +26,7 @@ class GraphAlgorithmServiceImplTest {
 	}
 
 	@Test
-	void testFindVerticesPairsByWeightiestEdge() {
+	void testFindVerticesPairsByWeightiestEdge() throws DataInputException {
 		// Given
 		Set<Vertex> vertices = getVerticesSet();
 		Graph graph = new Graph();
@@ -47,6 +47,17 @@ class GraphAlgorithmServiceImplTest {
 
 		// Then
 		Assertions.assertEquals(expectedVertexPair, actualVertexPair);
+	}
+
+	@Test
+	void testFindVerticesPairsByWeightiestEdgeThrowsDataInputException(){
+		// Given
+
+		// When
+
+		// Then
+		Assertions.assertThrows(DataInputException.class,
+				() -> graphAlgorithmService.findVerticesPairsByWeightiestEdge(null));
 	}
 
 	/**

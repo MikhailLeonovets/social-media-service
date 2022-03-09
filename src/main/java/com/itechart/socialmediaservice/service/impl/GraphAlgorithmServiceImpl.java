@@ -1,6 +1,7 @@
 package com.itechart.socialmediaservice.service.impl;
 
 import com.itechart.socialmediaservice.service.GraphAlgorithmService;
+import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.model.graph.Edge;
 import com.itechart.socialmediaservice.service.model.graph.Graph;
 import com.itechart.socialmediaservice.service.model.graph.Vertex;
@@ -15,7 +16,10 @@ import java.util.Set;
 @Service
 public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
 	@Override
-	public Set<VertexPair> findVerticesPairsByWeightiestEdge(Graph graph) {
+	public Set<VertexPair> findVerticesPairsByWeightiestEdge(Graph graph) throws DataInputException {
+		if (graph == null) {
+			throw new DataInputException();
+		}
 		Set<VertexPair> vertexPairs = new HashSet<>();
 		Set<Vertex> checkedVertices = new HashSet<>();
 		for (Vertex vertex : graph.getVertices()) {
