@@ -13,11 +13,11 @@ import java.util.Set;
 
 @Service
 public class PairServiceImpl implements PairService {
-	private final PairCalculatorService pairService;
+	private final PairCalculatorService pairCalculatorService;
 	private final UserCache userCache;
 
 	public PairServiceImpl(PairCalculatorService pairService, UserCache userCache) {
-		this.pairService = pairService;
+		this.pairCalculatorService = pairService;
 		this.userCache = userCache;
 	}
 
@@ -27,6 +27,6 @@ public class PairServiceImpl implements PairService {
 		if (users.isEmpty()) {
 			throw new UserNotFoundException();
 		}
-		return pairService.getPairsOfUsers(users);
+		return pairCalculatorService.getPairsOfUsers(users);
 	}
 }
