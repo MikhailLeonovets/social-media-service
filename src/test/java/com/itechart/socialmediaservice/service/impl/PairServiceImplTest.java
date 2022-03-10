@@ -1,7 +1,7 @@
 package com.itechart.socialmediaservice.service.impl;
 
 import com.itechart.socialmediaservice.service.PairCalculatorService;
-import com.itechart.socialmediaservice.service.cache.UserCache;
+import com.itechart.socialmediaservice.service.storage.UserStorage;
 import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
 import com.itechart.socialmediaservice.service.model.Interest;
@@ -22,7 +22,7 @@ class PairServiceImplTest {
 	@Mock
 	private PairCalculatorService pairCalculatorService;
 	@Mock
-	private UserCache userCache;
+	private UserStorage userStorage;
 
 	private static final String userName1 = "Misha";
 	private static final String userName2 = "Lesha";
@@ -36,14 +36,14 @@ class PairServiceImplTest {
 
 	@BeforeEach
 	void setUp() {
-		pairService = new PairServiceImpl(pairCalculatorService, userCache);
+		pairService = new PairServiceImpl(pairCalculatorService, userStorage);
 	}
 
 	@Test
 	void testGetPairs() throws DataInputException, UserNotFoundException {
 		// Given
 		Set<User> users = getUsersSetTest();
-		Mockito.doReturn(users).when(userCache).getUsers();
+		Mockito.doReturn(users).when(userStorage).getUsers();
 		Mockito.doReturn(getUserPairsForTest(users)).when(pairCalculatorService).getPairsOfUsers(users);
 		Set<UserPair> expectedUserPairs = getUserPairsForTest(users);
 
@@ -52,7 +52,6 @@ class PairServiceImplTest {
 
 		// Then
 		Assertions.assertIterableEquals(expectedUserPairs, actualUserPairs);
-
 	}
 
 	Set<UserPair> getUserPairsForTest(Set<User> users) {

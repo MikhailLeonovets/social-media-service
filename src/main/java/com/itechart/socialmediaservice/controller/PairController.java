@@ -20,7 +20,7 @@ public class PairController {
 	}
 
 	@GetMapping
-	public Set<UserPair> getPairs() throws UserNotFoundException, DataInputException { //TODO handle exception
+	public Set<UserPair> getPairs() throws UserNotFoundException, DataInputException {
 		return pairService.getPairs();
 	}
 }

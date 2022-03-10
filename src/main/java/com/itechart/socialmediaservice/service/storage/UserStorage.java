@@ -1,4 +1,4 @@
-package com.itechart.socialmediaservice.service.cache;
+package com.itechart.socialmediaservice.service.storage;
 
 import com.itechart.socialmediaservice.service.model.User;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 @Component
 @NoArgsConstructor
-public class UserCache {
+public class UserStorage {
 	private Set<User> users;
 	private int version;
 

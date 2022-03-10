@@ -21,15 +21,25 @@ import java.util.stream.Stream;
 
 @Component
 public class XlsxUserParser implements UserParser {
+	/**
+	 *
+	 * @param file - xlsx contains users
+	 * @return Set of users
+	 * @throws IOException
+	 */
 	@Override
 	public Set<User> convertToUsers(MultipartFile file) throws IOException {
 		Set<User> users = new HashSet<>();
 		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(convert(file));
-		XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(0);
-		for (int i = 1; i <= xssfSheet.getLastRowNum(); i++) {
+		int sheetNumber = 0;
+		int startUserInfoRow = 1;
+		int cellUserNameNumber = 0;
+		int cellInterestsNumber = 1;
+		XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(sheetNumber);
+		for (int i = startUserInfoRow; i <= xssfSheet.getLastRowNum(); i++) {
 			Row row = xssfSheet.getRow(i);
-			User user = new User(row.getCell(0).getStringCellValue());
-			Set<Interest> interests = Stream.of(row.getCell(1).getStringCellValue().split(","))
+			User user = new User(row.getCell(cellUserNameNumber).getStringCellValue());
+			Set<Interest> interests = Stream.of(row.getCell(cellInterestsNumber).getStringCellValue().split(","))
 					.map(item -> new Interest(item.trim().toLowerCase()))
 					.collect(Collectors.toSet());
 			user.addInterests(interests);

@@ -20,7 +20,8 @@ public class CsvUserParser implements UserParser {
 		Reader reader = new InputStreamReader(file.getInputStream());
 		CsvToBeanBuilder<User> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
 		csvToBeanBuilder.withType(User.class);
-		csvToBeanBuilder.withSkipLines(1);
+		int headerLineNumber = 1;
+		csvToBeanBuilder.withSkipLines(headerLineNumber);
 		CsvToBean<User> csvToBean = csvToBeanBuilder
 				.build();
 		return new HashSet<>(csvToBean.parse());

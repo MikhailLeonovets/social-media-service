@@ -41,28 +41,36 @@ public class XmlUserParser implements UserParser {
 			for (int i = 0; i < nodeList.getLength(); i++) {
 				Set<Interest> interests = new HashSet<>();
 				Node node = nodeList.item(i);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					User user = new User();
-					Element element = (Element) node;
-					user.setName(element.getElementsByTagName(TAG_USER_NAME).item(0).getTextContent());
-					NodeList interestNodes = ((Element) node).getElementsByTagName(TAG_INTERESTS);
-					for (int j = 0; j < interestNodes.getLength(); j++) {
-						Node interestNode = interestNodes.item(j);
-						if (interestNode.getNodeType() == Node.ELEMENT_NODE) {
-							Element element1 = (Element) interestNode;
-							Interest interest = new Interest(element1.getElementsByTagName(TAG_INTEREST_NAME)
-									.item(0)
-									.getTextContent());
-							interests.add(interest);
-						}
-					}
-					user.setInterests(interests);
-					users.add(user);
-				}
+				getUsers(users, interests, node);
 			}
 		} catch (ParserConfigurationException | SAXException e) {
 			throw new FileUploadException();
 		}
 		return users;
+	}
+
+	private void getUsers(Set<User> users, Set<Interest> interests, Node node) {
+		if (node.getNodeType() == Node.ELEMENT_NODE) {
+			User user = new User();
+			Element element = (Element) node;
+			user.setName(element.getElementsByTagName(TAG_USER_NAME).item(0).getTextContent());
+			NodeList interestNodes = ((Element) node).getElementsByTagName(TAG_INTERESTS);
+			getInterests(interests, interestNodes);
+			user.setInterests(interests);
+			users.add(user);
+		}
+	}
+
+	private void getInterests(Set<Interest> interests, NodeList interestNodes) {
+		for (int j = 0; j < interestNodes.getLength(); j++) {
+			Node interestNode = interestNodes.item(j);
+			if (interestNode.getNodeType() == Node.ELEMENT_NODE) {
+				Element element1 = (Element) interestNode;
+				Interest interest = new Interest(element1.getElementsByTagName(TAG_INTEREST_NAME)
+						.item(0)
+						.getTextContent());
+				interests.add(interest);
+			}
+		}
 	}
 }

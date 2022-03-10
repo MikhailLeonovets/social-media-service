@@ -1,7 +1,7 @@
 package com.itechart.socialmediaservice.service.impl;
 
 import com.itechart.socialmediaservice.service.UserFileService;
-import com.itechart.socialmediaservice.service.cache.UserCache;
+import com.itechart.socialmediaservice.service.storage.UserStorage;
 import com.itechart.socialmediaservice.service.exception.FileUploadException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
 import com.itechart.socialmediaservice.service.model.User;
@@ -10,7 +10,6 @@ import com.itechart.socialmediaservice.service.parser.JsonUserParser;
 import com.itechart.socialmediaservice.service.parser.XlsxUserParser;
 import com.itechart.socialmediaservice.service.parser.XmlUserParser;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,15 +22,15 @@ public class UserFileServiceImpl implements UserFileService {
 	private final XmlUserParser xmlParser;
 	private final CsvUserParser csvUserParser;
 	private final XlsxUserParser xlsxUserParser;
-	private final UserCache userCache;
+	private final UserStorage userStorage;
 
 	public UserFileServiceImpl(JsonUserParser jsonParser, XmlUserParser xmlParser,
-	                           CsvUserParser csvUserParser, XlsxUserParser xlsxUserParser, UserCache userCache) {
+	                           CsvUserParser csvUserParser, XlsxUserParser xlsxUserParser, UserStorage userStorage) {
 		this.jsonParser = jsonParser;
 		this.xmlParser = xmlParser;
 		this.csvUserParser = csvUserParser;
 		this.xlsxUserParser = xlsxUserParser;
-		this.userCache = userCache;
+		this.userStorage = userStorage;
 	}
 
 	@Override
@@ -60,6 +59,6 @@ public class UserFileServiceImpl implements UserFileService {
 		if (users.isEmpty()) {
 			throw new UserNotFoundException();
 		}
-		userCache.setUsers(users);
+		userStorage.setUsers(users);
 	}
 }
