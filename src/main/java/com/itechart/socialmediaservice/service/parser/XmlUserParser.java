@@ -3,7 +3,6 @@ package com.itechart.socialmediaservice.service.parser;
 import com.itechart.socialmediaservice.service.model.Interest;
 import com.itechart.socialmediaservice.service.model.User;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -20,7 +19,6 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-@Component
 public class XmlUserParser implements UserParser {
 	private static final String TAG_USER_OBJECT = "user";
 	private static final String TAG_USER_NAME = "name";

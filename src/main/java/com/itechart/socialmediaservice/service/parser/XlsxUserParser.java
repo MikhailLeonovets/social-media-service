@@ -2,12 +2,9 @@ package com.itechart.socialmediaservice.service.parser;
 
 import com.itechart.socialmediaservice.service.model.Interest;
 import com.itechart.socialmediaservice.service.model.User;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -19,7 +16,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-@Component
 public class XlsxUserParser implements UserParser {
 	/**
 	 *
