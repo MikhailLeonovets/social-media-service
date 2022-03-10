@@ -3,6 +3,7 @@ package com.itechart.socialmediaservice.controller;
 import com.itechart.socialmediaservice.service.UserFileService;
 import com.itechart.socialmediaservice.service.exception.FileUploadException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,7 @@ public class UsersFileController {
 
 	@PostMapping("/upload")
 	public ResponseEntity<?> uploadUsersFile(@RequestParam("file") MultipartFile file)
-			throws IOException, UserNotFoundException, FileUploadException {
+			throws IOException, UserNotFoundException, FileUploadException, InvalidFormatException {
 		userFileService.createUsersFromFile(file);
 		return ResponseEntity.ok(uploadFileSuccessMsg);
 	}

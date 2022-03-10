@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -30,6 +31,15 @@ public class User implements Serializable {
 	private String name;
 	@XmlElement(name = "interests")
 	@CsvBindAndSplitByPosition(position = 1, splitOn = "\\|", elementType = Interest.class,
-			converter =	TextToInterestConverter.class)
+			converter = TextToInterestConverter.class)
 	private Set<Interest> interests;
+
+	public User(String name) {
+		this.name = name;
+		this.interests = new HashSet<>();
+	}
+
+	public void addInterests(Set<Interest> interests) {
+		this.interests.addAll(interests);
+	}
 }
