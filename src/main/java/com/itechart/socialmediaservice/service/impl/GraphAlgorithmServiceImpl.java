@@ -43,7 +43,7 @@ public class GraphAlgorithmServiceImpl implements GraphAlgorithmService {
 			Vertex adjacentVertex = weightiestEdgeCurrentVertex.getTo();
 			Edge edge = findWeightiestEdge(adjacentVertex);
 			if (edge != null) {
-				if (edge.getTo().equals(vertex)) {
+				if (weightiestEdgeCurrentVertex.getWeight() == edge.getWeight()) {
 					checkedVertices.addAll(Set.of(vertex, adjacentVertex));
 					vertexPairs.add(new VertexPair(vertex, adjacentVertex));
 				} else {

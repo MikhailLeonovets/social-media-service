@@ -60,7 +60,6 @@ public class UserFileServiceImpl implements UserFileService {
 		if (users.isEmpty()) {
 			throw new UserNotFoundException();
 		}
-		System.out.println(users);
 		userCache.setUsers(users);
 	}
 }
