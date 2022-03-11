@@ -48,7 +48,6 @@ public class XmlStaxUserParser implements UserParser {
 				}
 			}
 		}
-		System.out.println(users);
 		return users;
 	}
 }
