@@ -19,11 +19,11 @@ import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 
-public class XmlUserParser implements UserParser {
+public class XmlDomUserParser implements UserParser {
 	private static final String TAG_USER_OBJECT = "user";
-	private static final String TAG_USER_NAME = "name";
+	private static final String TAG_USER_NAME = "userName";
 	private static final String TAG_INTERESTS = "interests";
-	private static final String TAG_INTEREST_NAME = "name";
+	private static final String TAG_INTEREST_NAME = "interestName";
 
 	@Override
 	public Set<User> convertToUsers(MultipartFile file) throws IOException {
@@ -51,7 +51,7 @@ public class XmlUserParser implements UserParser {
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			User user = new User();
 			Element element = (Element) node;
-			user.setName(element.getElementsByTagName(TAG_USER_NAME).item(0).getTextContent());
+			user.setUserName(element.getElementsByTagName(TAG_USER_NAME).item(0).getTextContent());
 			NodeList interestNodes = ((Element) node).getElementsByTagName(TAG_INTERESTS);
 			getInterests(interests, interestNodes);
 			user.setInterests(interests);

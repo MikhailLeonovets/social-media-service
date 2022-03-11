@@ -50,7 +50,7 @@ public class PairGraphCalculatorServiceImpl implements PairCalculatorService {
 
 	private User getUserFromVertex(Set<User> users, Vertex vertex) {
 		return users.stream()
-				.filter(user -> user.getName().equals(vertex.getLabel()))
+				.filter(user -> user.getUserName().equals(vertex.getLabel()))
 				.findFirst()
 				.get();
 	}

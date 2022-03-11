@@ -58,11 +58,11 @@ class PairServiceImplTest {
 		Interest interest1 = new Interest(interestName1);
 		Interest interest2 = new Interest(interestName2);
 		User firstUser = users.stream()
-				.filter(user -> user.getName().equals(userName1))
+				.filter(user -> user.getUserName().equals(userName1))
 				.findFirst()
 				.get();
 		User secondUser = users.stream()
-				.filter(user -> user.getName().equals(userName2))
+				.filter(user -> user.getUserName().equals(userName2))
 				.findFirst()
 				.get();
 		UserPair userPair = new UserPair(firstUser, secondUser, Set.of(interest1, interest2));

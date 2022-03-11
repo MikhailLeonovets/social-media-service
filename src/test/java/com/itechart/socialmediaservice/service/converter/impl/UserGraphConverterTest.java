@@ -9,7 +9,6 @@ import com.itechart.socialmediaservice.service.model.graph.Vertex;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -42,8 +41,8 @@ class UserGraphConverterTest {
 		Graph expectedGraph = new Graph();
 		Vertex vertex1 = new Vertex();
 		Vertex vertex2 = new Vertex();
-		vertex1.setLabel(user1.getName());
-		vertex2.setLabel(user2.getName());
+		vertex1.setLabel(user1.getUserName());
+		vertex2.setLabel(user2.getUserName());
 
 		Edge edge1 = new Edge(vertex2, edgeWeight);
 		Edge edge2 = new Edge(vertex1, edgeWeight);

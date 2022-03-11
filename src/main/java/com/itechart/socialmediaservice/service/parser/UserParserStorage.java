@@ -8,13 +8,10 @@ public enum UserParserStorage {
 	CSV_USER_PARSER(new CsvUserParser(), "csv"),
 	JSON_USER_PARSER(new JsonUserParser(), "json"),
 	XLSX_USER_PARSER(new XlsxUserParser(), "xlsx"),
-	XML_USER_PARSER(new XlsxUserParser(), "xml");
+	XML_USER_PARSER(new XmlDomUserParser(), "xml");
 
 	private final UserParser userParser;
 	private final String fileExtension;
-
-	@Autowired
-	private static ApplicationContext applicationContext;
 
 	UserParserStorage(UserParser userParser, String fileExtension) {
 		this.userParser = userParser;

@@ -31,7 +31,7 @@ public class UserGraphConverter implements GraphConverter {
 		Set<User> adjacentUsers = new HashSet<>(users);
 		adjacentUsers.remove(user);
 		Vertex userAsVertex = vertices.stream()
-				.filter(vertex -> vertex.getLabel().equals(user.getName()))
+				.filter(vertex -> vertex.getLabel().equals(user.getUserName()))
 				.findFirst()
 				.get();
 		for (User adjacentUser : adjacentUsers) {
@@ -40,7 +40,7 @@ public class UserGraphConverter implements GraphConverter {
 			if (edgeWeight != 0) {
 				Edge edge = new Edge();
 				edge.setTo(vertices.stream()
-						.filter(vertex -> vertex.getLabel().equals(adjacentUser.getName()))
+						.filter(vertex -> vertex.getLabel().equals(adjacentUser.getUserName()))
 						.findFirst().get());
 				edge.setWeight(edgeWeight);
 				userAsVertex.addEdge(edge);
@@ -51,7 +51,7 @@ public class UserGraphConverter implements GraphConverter {
 	private Set<Vertex> convertUsersToVerticesWithEmptyEdges(Set<User> users) {
 		Set<Vertex> vertices = new HashSet<>();
 		for (User user : users) {
-			Vertex vertex = new Vertex(user.getName());
+			Vertex vertex = new Vertex(user.getUserName());
 			vertices.add(vertex);
 		}
 		return vertices;

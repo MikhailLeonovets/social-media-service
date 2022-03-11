@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <users>
   <user>
-    <name>Misha</name>
+    <userName>Misha</userName>
     <interests>
-      <name>movies</name>
-    </interests>
-    <interests>
-      <name>cars</name>
+      <interestName>movies</interestName>
+      <interestName>cars</interestName>
     </interests>
   </user>
   <user>
-    <name>Katy</name>
+    <userName>Katy</userName>
     <interests>
-      <name>movies</name>
-    </interests>
-    <interests>
-      <name>cars</name>
+      <interestName>movies</interestName>
+      <interestName>cars</interestName>
     </interests>
   </user>
   <user>
-    <name>Kirill</name>
+    <userName>Kirill</userName>
     <interests>
-      <name>music</name>
-    </interests>
-    <interests>
-      <name>cars</name>
+      <interestName>music</interestName>
+      <interestName>cars</interestName>
     </interests>
   </user>
   <user>
-    <name>Lesha</name>
+    <userName>Lesha</userName>
     <interests>
-      <name>music</name>
+      <interestName>music</interestName>
     </interests>
   </user>
 </users>
