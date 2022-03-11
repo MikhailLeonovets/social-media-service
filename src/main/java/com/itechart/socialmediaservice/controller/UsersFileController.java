@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLStreamException;
 import java.io.IOException;
 
 @PropertySource("classpath:messages/controller_messages.properties")
@@ -33,7 +34,7 @@ public class UsersFileController {
 	@PostMapping("/upload")
 	public ResponseEntity<?> uploadUsersFile(@RequestParam("file") MultipartFile file)
 			throws IOException, UserNotFoundException, FileUploadException, InvalidFormatException,
-			ParserConfigurationException, SAXException {
+			ParserConfigurationException, SAXException, XMLStreamException {
 		userFileService.createUsersFromFile(file);
 		return ResponseEntity.ok(uploadFileSuccessMsg);
 	}

@@ -15,6 +15,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class XmlSaxUserParser extends DefaultHandler implements UserParser {
+	private static final String objectUserXmlTag = "user";
+	private static final String userNameFieldXmlTag = "userName";
+	private static final String interestNameFieldXmlTag = "interestName";
+
 	private final Set<User> users;
 
 	private String tmpValue;
@@ -35,7 +39,7 @@ public class XmlSaxUserParser extends DefaultHandler implements UserParser {
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) {
-		if (qName.equalsIgnoreCase("user")) {
+		if (qName.equalsIgnoreCase(objectUserXmlTag)) {
 			userTmp = new User();
 		}
 	}
@@ -48,13 +52,13 @@ public class XmlSaxUserParser extends DefaultHandler implements UserParser {
 
 	@Override
 	public void endElement(String uri, String localName, String qName) {
-		if (qName.equalsIgnoreCase("user")) {
+		if (qName.equalsIgnoreCase(objectUserXmlTag)) {
 			users.add(userTmp);
 		}
-		if (qName.equalsIgnoreCase("userName")) {
+		if (qName.equalsIgnoreCase(userNameFieldXmlTag)) {
 			userTmp.setUserName(tmpValue);
 		}
-		if (qName.equalsIgnoreCase("interestName")) {
+		if (qName.equalsIgnoreCase(interestNameFieldXmlTag)) {
 			userTmp.addInterest(new Interest(tmpValue));
 		}
 	}
