@@ -2,7 +2,6 @@ package com.itechart.socialmediaservice.service.parser;
 
 import com.itechart.socialmediaservice.service.model.Interest;
 import com.itechart.socialmediaservice.service.model.User;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;

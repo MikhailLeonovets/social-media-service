@@ -1,8 +1,6 @@
 package com.itechart.socialmediaservice.service.parser;
 
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
 public enum UserParserStorage {
 	CSV_USER_PARSER(new CsvUserParser(), "csv"),

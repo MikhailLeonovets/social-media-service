@@ -1,12 +1,12 @@
 package com.itechart.socialmediaservice.service.impl;
 
-import com.itechart.socialmediaservice.service.PairService;
 import com.itechart.socialmediaservice.service.PairCalculatorService;
-import com.itechart.socialmediaservice.service.storage.UserStorage;
+import com.itechart.socialmediaservice.service.PairService;
 import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
-import com.itechart.socialmediaservice.service.model.UserPair;
 import com.itechart.socialmediaservice.service.model.User;
+import com.itechart.socialmediaservice.service.model.UserPair;
+import com.itechart.socialmediaservice.service.storage.UserStorage;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;

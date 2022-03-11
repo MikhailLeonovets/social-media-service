@@ -1,12 +1,12 @@
 package com.itechart.socialmediaservice.service.impl;
 
 import com.itechart.socialmediaservice.service.GraphAlgorithmService;
-import com.itechart.socialmediaservice.service.converter.GraphConverter;
 import com.itechart.socialmediaservice.service.PairCalculatorService;
+import com.itechart.socialmediaservice.service.converter.GraphConverter;
 import com.itechart.socialmediaservice.service.exception.DataInputException;
 import com.itechart.socialmediaservice.service.model.Interest;
-import com.itechart.socialmediaservice.service.model.UserPair;
 import com.itechart.socialmediaservice.service.model.User;
+import com.itechart.socialmediaservice.service.model.UserPair;
 import com.itechart.socialmediaservice.service.model.graph.Graph;
 import com.itechart.socialmediaservice.service.model.graph.Vertex;
 import com.itechart.socialmediaservice.service.model.graph.VertexPair;

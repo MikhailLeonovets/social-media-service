@@ -1,12 +1,12 @@
 package com.itechart.socialmediaservice.service.impl;
 
 import com.itechart.socialmediaservice.service.UserFileService;
-import com.itechart.socialmediaservice.service.parser.UserParser;
-import com.itechart.socialmediaservice.service.parser.UserParserStorage;
-import com.itechart.socialmediaservice.service.storage.UserStorage;
 import com.itechart.socialmediaservice.service.exception.FileUploadException;
 import com.itechart.socialmediaservice.service.exception.UserNotFoundException;
 import com.itechart.socialmediaservice.service.model.User;
+import com.itechart.socialmediaservice.service.parser.UserParser;
+import com.itechart.socialmediaservice.service.parser.UserParserStorage;
+import com.itechart.socialmediaservice.service.storage.UserStorage;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.stereotype.Service;

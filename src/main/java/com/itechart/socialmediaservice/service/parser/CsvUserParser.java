@@ -1,7 +1,6 @@
 package com.itechart.socialmediaservice.service.parser;
 
 import com.itechart.socialmediaservice.service.model.User;
-
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.web.multipart.MultipartFile;
